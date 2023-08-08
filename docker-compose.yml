@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.17.12
+    restart: always
+    environment:
+      - discovery.type=single-node
+    ports:
+      - 9211:9200
+    volumes:
+      - elasticsearch_data:/usr/share/elasticsearch/data
+
+volumes:
+  elasticsearch_data: {}
